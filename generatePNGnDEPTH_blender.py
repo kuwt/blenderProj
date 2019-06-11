@@ -3,7 +3,8 @@ from bpy import context
 scene = context.scene
 ##meter in unit
 #################parameter################################
-objectPath = "F:\\ronaldwork\\testData\\cadModel\\VShapePartsTemplate.STL"
+objectName = 'LongPartsTemplate'
+objectPath = "F:\\ronaldwork\\testData\\cadModel\\LongPartsTemplate.STL"
 scalingFactor = 0.001
 
 namePrefix = "v"
@@ -41,7 +42,7 @@ bpy.context.active_object.location[2] = 1
 bpy.ops.import_mesh.stl(filepath=objectPath)
 for obj in bpy.data.objects:
     obj.select = False
-bpy.data.objects['VShapePartsTemplate'].select = True
+bpy.data.objects[objectName].select = True
 bpy.context.active_object.location[0] = 0
 bpy.context.active_object.location[1] = 0
 bpy.context.active_object.location[2] = 0
@@ -50,10 +51,10 @@ bpy.context.active_object.scale[1] = scalingFactor
 bpy.context.active_object.scale[2] = scalingFactor
 
 ###################create rotation steps#######################################
-angleStep = 10
+angleStep = 30
 numofAlphaStep = int(360/angleStep)
-numofBetaStep = 1  #int(180/angleStep)
-numofGammaStep = 1# int(360/angleStep)
+numofBetaStep = int(180/angleStep)
+numofGammaStep = int(360/angleStep)
 
 angles = []
 for alphaIdx in range(0,numofAlphaStep):
